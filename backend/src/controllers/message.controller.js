@@ -16,11 +16,12 @@ export const getUsersForSidebar = async (req, res) => {
   }
 };
 
+//chronological order
 export const getMessages = async (req, res) => {
   try {
-    const { id: userToChatId } = req.params;
+    const { id: userToChatId } = req.params;//structured
     const myId = req.user._id;
-
+//finding messages
     const messages = await Message.find({
       $or: [
         { senderId: myId, receiverId: userToChatId },
