@@ -26,7 +26,6 @@ const Navbar = () => {
               to={"/settings"}
               className={`
               btn btn-sm gap-2 transition-colors
-              
               `}
             >
               <Settings className="w-4 h-4" />
@@ -40,6 +39,13 @@ const Navbar = () => {
                   <span className="hidden sm:inline">Profile</span>
                 </Link>
 
+                {/* Admin link only for admin users */}
+                {authUser.isAdmin && (
+                  <Link to="/admin" className="btn btn-sm gap-2">
+                    <span className="hidden sm:inline">Admin</span>
+                  </Link>
+                )}
+
                 <button className="flex gap-2 items-center" onClick={logout}>
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
@@ -52,4 +58,5 @@ const Navbar = () => {
     </header>
   );
 };
+
 export default Navbar;

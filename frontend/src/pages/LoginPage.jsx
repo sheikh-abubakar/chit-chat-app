@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import AuthImagePattern from "../components/AuthImagePattern";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 
 const LoginPage = () => {
@@ -11,10 +11,19 @@ const LoginPage = () => {
     password: "",
   });
   const { login, isLoggingIn } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
+    // login returns a promise that resolves to the user object
+    const user = await login(formData);
+    if (user) {
+      if (user.isAdmin) {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    }
   };
 
   return (

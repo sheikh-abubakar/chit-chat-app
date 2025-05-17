@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+     // ...existing fields...
+  isAdmin: { type: Boolean, default: false },
+  isBlocked: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
