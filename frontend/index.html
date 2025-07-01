@@ -10,34 +10,7 @@
     <div id="root"></div>
      
     <script type="module" src="src/main.jsx"></script>
-    <script>
-      window.watsonAssistantChatOptions = {
-        integrationID: "e185ad8c-0775-4f8c-ba29-cdd3a6be2ae9", // The ID of this integration.
-        region: "us-south", // The region your integration is hosted in.
-        serviceInstanceID: "6962d693-5abc-4a83-a9c1-547e8d5f1170", // The ID of your service instance.
-        onLoad: async (instance) => { await instance.render(); 
-           // Update CSS variables for styling, including font size
-           instance.updateCSSVariables({
-  'LAUNCHER-color-background': '#525252',
-  'LAUNCHER-color-background-hover': '#3d3d3d',
-  'LAUNCHER-color-background-active': '#1f1f1f',
-  'LAUNCHER-color-focus-border': '#ffffff',
-  'LAUNCHER-color-avatar': '#ffffff',
-  'LAUNCHER-EXPANDED-MESSAGE-color-background': '#ffffff',
-  'LAUNCHER-EXPANDED-MESSAGE-color-background-hover': '#ebebeb',
-  'LAUNCHER-EXPANDED-MESSAGE-color-background-active': '#cccccc',
-  'LAUNCHER-EXPANDED-MESSAGE-color-focus-border': '#000000',
-  'LAUNCHER-EXPANDED-MESSAGE-color-text': '#000000',
-  'LAUNCHER-MOBILE-color-text': '#000000',
-});
-        }
-      };
-      setTimeout(function(){
-        const t=document.createElement('script');
-        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-        document.head.appendChild(t);
-      },0);
-      </script>
+    
 
   </body>
 </html>
